@@ -6,19 +6,12 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 10:34:40 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/07 13:31:09 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/10 17:58:01 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int		is_whitespace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t')
-		return (1);
-	else
-		return (0);
-}
+#include <stdlib.h>
 
 char	*ft_strtrim(const char *s)
 {
@@ -31,10 +24,9 @@ char	*ft_strtrim(const char *s)
 		return (NULL);
 	end = ft_strlen(s);
 	begin = 0;
-	/* spaces at end of string */
-	while (is_whitespace(s[end - 1]))
+	while (ft_isspace(s[end - 1]))
 		--end;
-	while (is_whitespace(s[begin]) && begin < end)
+	while (ft_isspace(s[begin]) && begin < end)
 		++begin;
 	str = ft_strnew(end - begin);
 	if (str == NULL)

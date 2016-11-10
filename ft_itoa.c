@@ -6,17 +6,17 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:29:23 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/07 19:41:56 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/10 17:52:19 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 size_t	nb_digits(long n, int is_neg)
 {
 	size_t	len;
-	
+
 	if (is_neg)
 		len = 2;
 	else
@@ -37,13 +37,12 @@ char	*ft_itoa(int n)
 	int				is_negative;
 
 	nb = n;
+	is_negative = 0;
 	if (nb < 0)
 	{
 		is_negative = 1;
 		nb = -nb;
 	}
-	else
-		is_negative = 0;
 	len = nb_digits(nb, is_negative);
 	res = ft_strnew(len);
 	if (res == NULL)

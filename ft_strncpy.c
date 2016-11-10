@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:08:34 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/07 11:33:58 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:47:27 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	if (src != NULL && dst != NULL)
+	char	*buffer;
+	
+	buffer = dst;
+	while (*src && n)
 	{
-		while (i < n)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		if (i != n)
-			dst[i] = '\0';
-		return (dst + i);
+		*buffer = *src;
+		++src;
+		++buffer;
+		--n;
+	}	
+	while (n)
+	{
+		*buffer = '\0';
+		++buffer;
+		--n;
 	}
-	return (NULL);
+	return (dst);
 }

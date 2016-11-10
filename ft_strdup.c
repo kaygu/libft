@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:39:12 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/10 19:51:25 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:18:05 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 
 	dst = NULL;
-	if (s != NULL)
-	{
-		len = ft_strlen(s);
-		dst = ft_strndup(s, len);
-	}
+	len = ft_strlen(s);
+	dst = ft_strndup(s, len);
 	return (dst);
 }

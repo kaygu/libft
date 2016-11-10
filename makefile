@@ -19,7 +19,7 @@ CFILES=		ft_memset.c	\
 			ft_strchr.c	\
 			ft_strrchr.c	\
 			ft_strstr.c	\
-			cft_strnstr.c	\
+			ft_strnstr.c	\
 			ft_strcmp.c	\
 			ft_strncmp.c	\
 			ft_atoi.c	\
@@ -29,6 +29,7 @@ CFILES=		ft_memset.c	\
 			ft_isascii.c	\
 			ft_isprint.c	\
 			ft_toupper.c	\
+			ft_tolower.c	\
 			ft_memalloc.c	\
 			ft_memdel.c	\
 			ft_strnew.c	\
@@ -58,7 +59,8 @@ CFILES=		ft_memset.c	\
 			ft_lstdel.c	\
 			ft_lstadd.c	\
 			ft_lstiter.c	\
-			ft_lstmap.c
+			ft_lstmap.c	\
+			ft_isspace.c
 
 OBJ=$(CFILES:%.c=%.o)
 all: $(NAME)
