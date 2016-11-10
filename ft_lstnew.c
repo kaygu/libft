@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,31 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_list	*ft_lstnew(void *content, size_t content_size)
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
+	t_list	*temp;
 
-	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
+	if ((temp = (t_list*)malloc(sizeof(t_list))))
 	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
+		if (content != NULL)
+		{
+			if (content_size)
+			{
+				if (!(temp->content = malloc(content_size)))
+				{
+					free(temp);
+					return (NULL);
+				}
+				ft_memcpy(temp->content, content, content_size);
+			}
+			else
+				temp->content = content;
+		}
+		else
+			temp->content = NULL;
+		temp->next = NULL;
 	}
-	return (NULL);
+	return (temp);
 }

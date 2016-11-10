@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,12 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_isspace(const char c)
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
-
-	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
-	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
-	}
-	return (NULL);
+	if (c == ' ' || c == '\t' ||
+		c == '\n' || c == '\v' ||
+		c == '\f' || c == '\r')
+		return (1);
+	else
+		return (0);
 }

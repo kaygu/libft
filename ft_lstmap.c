@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,24 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
+	t_list	*new;
+	t_list	*link;
 
-	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
+	new = NULL;
+	link = NULL;
+	while (lst != NULL)
 	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
+		if (new == NULL)
+		{
+			new = f(lst);
+			link = new;
+		}
+		else
+			link->next = f(lst);
 	}
-	return (NULL);
+	return (new);
 }

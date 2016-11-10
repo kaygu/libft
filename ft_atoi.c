@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,27 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_atoi(char *str)
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
+	long int	n;
+	int			sign;
 
-	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
+	n = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '-' || *str == '+')
 	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
+		if (*str == '-')
+			sign = -1;
+		else
+			sign = 1;
+		++str;
 	}
-	return (NULL);
+	while (ft_isdigit(*str))
+	{
+		n = n * 10 + *str - '0';
+		++str;
+	}
+	return ((int)n * sign);
 }

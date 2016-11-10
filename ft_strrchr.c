@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,25 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
+	int		i;
+	int		res;
 
 	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
+	res = 0;
+	if (s != NULL)
 	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
+		while (s[i] != '\0')
+		{
+			if (s[i] == c)
+				res = i + 1;
+			i++;
+		}
+		if (res)
+			return (&((char*)s)[res - 1]);
+		else if (s[i] == c)
+			return (&((char*)s)[i]);
 	}
 	return (NULL);
 }

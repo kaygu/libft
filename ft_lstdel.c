@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libfh.h"
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstdel(t_list_head *head, void (*del)(void *))
 {
-	size_t					i;
-	unsigned char			c_c;
-	const unsigned char		*c_s;
+	t_list	*temp;
+	t_list	*temp_next;
 
-	i = 0;
-	c_s = s;
-	c_c = (unsigned char)c;
-	while (i < n)
+	temp = head->first;
+	while (temp != NULL)
 	{
-		if (c_s[i] == c_c)
-			return (&((unsigned char*)c_s)[i]);
-		i++;
+		temp_next = temp->next;
+		del(temp->content);
+		free(temp);
+		temp = temp_next;
 	}
-	return (NULL);
+	ft_bzero(head, sizeof(t_list_head));
 }
