@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 16:19:16 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/10 19:22:23 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/10 19:42:58 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 		free(*alst);
 		*alst = alst_next;
 	}
-	ft_bzero(*alst, sizeof(t_list));
+	*alst = NULL;
 }
