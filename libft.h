@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 13:10:02 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/10 19:22:41 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/12 18:39:43 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-int					ft_strlen(const char *str);
+size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *s);
-char				*ft_strndup(const char *s, size_t len);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
 char				*ft_strcat(char *s1, const char *s2);
@@ -89,10 +88,10 @@ void				ft_putnbr_fd(int n, int fd);
 ** Bonus functions
 */
 
-t_list				*ft_lstnew(void *content, size_t content_size);
+t_list				*ft_lstnew(const void *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alist, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd(t_list **alst, t_list *new_l);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
@@ -101,5 +100,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 int					ft_isspace(const char c);
+char				*ft_strndup(const char *s, size_t len);
 
 #endif

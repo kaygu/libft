@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:00:51 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/07 20:17:29 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/12 18:44:32 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_putstr_fd(const char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s != NULL)
+		write(fd, s, ft_strlen(s));
 }

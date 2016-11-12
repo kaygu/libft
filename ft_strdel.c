@@ -6,7 +6,7 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 14:54:50 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/04 14:56:34 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/12 18:05:01 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_strdel(char **as)
 {
-	ft_memdel((void**)as);
+	if (as != NULL)
+		ft_memdel((void**)as);
 }
