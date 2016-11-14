@@ -6,12 +6,11 @@
 /*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:29:23 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/12 16:23:13 by cde-neef         ###   ########.fr       */
+/*   Updated: 2016/11/14 13:13:50 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	nb_digits(long n, int is_neg)
 {
