@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:00:51 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/12 18:44:32 by cde-neef         ###   ########.fr       */
+/*   Updated: 2017/10/23 19:52:15 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(const char *s, int fd)
 {

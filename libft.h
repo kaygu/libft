@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 13:10:02 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/12 18:39:43 by cde-neef         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:02:23 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdint.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -34,6 +36,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *str);
+size_t				ft_strnlen(const char *s, size_t max);
 char				*ft_strdup(const char *s);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
@@ -77,10 +80,12 @@ char				**ft_strsplit(const char *s, char c);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(const char *s);
+void				ft_putnstr(char const *str, size_t str_len);
 void				ft_putendl(const char *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
+void				ft_putnstr_fd(char const *str, size_t str_len, int fd);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
@@ -100,6 +105,15 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 int					ft_isspace(const char c);
+int					ft_max(int x, int y);
+int					ft_mix(int x, int y);
 char				*ft_strndup(const char *s, size_t len);
+void				ft_putnbrbase(uintmax_t nbr, char *base);
+void				ft_putnbrbase_fd(uintmax_t nbr, char *base, int fd);
+void				ft_putwchar_fd(wchar_t chr, int fd);
+void				ft_putwchar(wchar_t chr);
+void				ft_putwstr_fd(wchar_t const *str, int fd);
+void				ft_putwstr(wchar_t const *str);
+void				ft_putnwstr(const wchar_t *str, size_t len);
 
 #endif

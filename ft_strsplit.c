@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-neef <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 13:33:08 by cde-neef          #+#    #+#             */
-/*   Updated: 2016/11/12 18:38:37 by cde-neef         ###   ########.fr       */
+/*   Updated: 2017/10/23 19:50:05 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 static size_t		count_words(const char *s, const char c)
 {

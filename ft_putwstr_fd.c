@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putwstr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 16:19:16 by cde-neef          #+#    #+#             */
-/*   Updated: 2017/10/23 19:38:48 by cde-neef         ###   ########.fr       */
+/*   Created: 2017/10/26 17:53:26 by cde-neef          #+#    #+#             */
+/*   Updated: 2017/10/26 18:00:32 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <wchar.h>
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
-{
-	t_list	*output;
+/*
+** Could be optimized (multiple system calls)
+*/
 
-	if (lst)
-	{
-		output = (*f)(lst);
-		output->next = ft_lstmap(lst->next, f);
-		return (output);
-	}
-	return (NULL);
+void	ft_putwstr_fd(wchar_t const *str, int fd)
+{
+	while (*str)
+		ft_putwchar_fd(*str++, fd);
 }

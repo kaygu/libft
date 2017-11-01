@@ -1,6 +1,7 @@
-NAME=libft.a
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror
+NAME=		libft.a
+CC=			gcc
+CFLAGS=		-Wall -Wextra -Werror
+INC=		./includes/
 CFILES=		ft_memset.c	\
 			ft_bzero.c	\
 			ft_memcpy.c	\
@@ -48,10 +49,12 @@ CFILES=		ft_memset.c	\
 			ft_itoa.c	\
 			ft_putchar.c	\
 			ft_putstr.c	\
+			ft_putnstr.c \
 			ft_putendl.c	\
 			ft_putnbr.c	\
 			ft_putchar_fd.c	\
 			ft_putstr_fd.c	\
+			ft_putnstr_fd.c \
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_lstnew.c	\
@@ -60,16 +63,27 @@ CFILES=		ft_memset.c	\
 			ft_lstadd.c	\
 			ft_lstiter.c	\
 			ft_lstmap.c	\
-			ft_isspace.c
+			ft_isspace.c \
+			ft_max.c \
+			ft_min.c \
+			ft_putnbrbase_fd.c \
+			ft_putnbrbase.c \
+			ft_strnlen.c \
+			ft_putwchar_fd.c \
+			ft_putwchar.c \
+			ft_putwstr_fd.c \
+			ft_putwstr.c \
+			ft_putnwstr.c
 
 OBJ=$(CFILES:%.c=%.o)
 all: $(NAME)
 
 $(NAME):$(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@$(AR) rcs $(NAME) $(OBJ)
+	@echo "\n---\nLibft compiled\n"
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -c $< $(CFLAGS) -I$(INC)
 
 clean:
 	rm -f $(OBJ)

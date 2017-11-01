@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnstr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 16:19:16 by cde-neef          #+#    #+#             */
-/*   Updated: 2017/10/23 19:38:48 by cde-neef         ###   ########.fr       */
+/*   Created: 2017/10/23 19:11:35 by cde-neef          #+#    #+#             */
+/*   Updated: 2017/10/23 19:14:39 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <sys/types.h>
+#include <unistd.h>
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_putnstr_fd(char const *str, size_t str_len, int fd)
 {
-	t_list	*output;
-
-	if (lst)
-	{
-		output = (*f)(lst);
-		output->next = ft_lstmap(lst->next, f);
-		return (output);
-	}
-	return (NULL);
+	write(fd, str, str_len);
 }

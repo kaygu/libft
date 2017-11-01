@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrbase_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-neef <cde-neef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 16:19:16 by cde-neef          #+#    #+#             */
-/*   Updated: 2017/10/23 19:38:48 by cde-neef         ###   ########.fr       */
+/*   Created: 2017/10/23 20:38:42 by cde-neef          #+#    #+#             */
+/*   Updated: 2017/10/23 20:57:53 by cde-neef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include <stdint.h>
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+static void	ft_putnbrbase_fd_inner(uintmax_t nbr, char *base, size_t baselen,
+				int fd)
 {
-	t_list	*output;
-
-	if (lst)
+	if (nbr >= baselen)
 	{
-		output = (*f)(lst);
-		output->next = ft_lstmap(lst->next, f);
-		return (output);
+		ft_putnbrbase_fd_inner(nbr / baselen, base, baselen, fd);
+		ft_putnbrbase_fd_inner(nbr % baselen, base, baselen, fd);
 	}
-	return (NULL);
+	else
+		ft_putchar_fd(base[nbr], fd);
+}
+
+void		ft_putnbrbase_fd(uintmax_t nbr, char *base, int fd)
+{
+	ft_putnbrbase_fd_inner(nbr, base, ft_strlen(base), fd);
 }
